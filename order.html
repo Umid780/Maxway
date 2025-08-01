@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Buyurtma</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="form-container">
+    <h2>🍔 Buyurtma berish</h2>
+    <form method="POST">
+      <input type="text" name="name" placeholder="Ismingiz" required>
+      <input type="tel" name="phone" placeholder="Telefon raqamingiz" required>
+      <select name="product" required>
+        <option value="">Mahsulotni tanlang</option>
+        {% for product in products %}
+        <option value="{{ product.name }}">{{ product.name }} - {{ product.price }}</option>
+        {% endfor %}
+      </select>
+      <button type="submit">Yuborish</button>
+    </form>
+    <a href="{{ url_for('index') }}">⬅ Ortga</a>
+  </div>
+</body>
+</html>

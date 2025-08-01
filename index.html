@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>MaxWay Fast Food</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>🍔 MaxWay Fast Food</h1>
+    <p>Eng zo‘r ta'mlar shu yerda!</p>
+    <a href="{{ url_for('order') }}" class="order-btn">Buyurtma berish</a>
+  </header>
+
+  <section class="products">
+    {% for product in products %}
+    <div class="card">
+      <img src="{{ url_for('static', filename='images/' + product.image) }}" alt="{{ product.name }}">
+      <h2>{{ product.name }}</h2>
+      <p class="price">{{ product.price }}</p>
+    </div>
+    {% endfor %}
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MaxWay Uz</p>
+  </footer>
+</body>
+</html>
